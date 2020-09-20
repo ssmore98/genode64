@@ -3,8 +3,8 @@ VERSION   := git
 DOWNLOADS := sel4.git
 
 URL(sel4) := https://github.com/seL4/seL4.git
-# master branch, version 9.0.1
-REV(sel4) := 0dd40b6c43a290173ea7782b97afbbbddfa23b36
+# master branch, version 11.0.0
+REV(sel4) := ff216025041bfab6a45080eaabda2ff4af5db3e9
 DIR(sel4) := src/kernel/sel4
 
 $(call check_tool,python)
