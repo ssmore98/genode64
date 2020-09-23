@@ -1,6 +1,6 @@
 BOARD ?= unknown
-TARGET = sel4-$(BOARD)
-LIBS   = kernel-sel4-$(BOARD)
+TARGET = sell4-$(BOARD)
+LIBS   = kernel-sell4-$(BOARD)
 
 $(INSTALL_DIR)/$(TARGET):
-	$(VERBOSE)ln -sf $(LIB_CACHE_DIR)/kernel-sel4-$(BOARD)/kernel.elf.strip $@
+	$(VERBOSE)ln -sf $(LIB_CACHE_DIR)/kernel-sell4-$(BOARD)/kernel.elf $@

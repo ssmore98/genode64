@@ -1,4 +1,4 @@
-SEL4_DIR := $(call select_from_ports,sell4)/src/kernel/sel4
+SELL4_DIR := $(call select_from_ports,sell4)/src/kernel/sel4
 
 #
 # Execute the kernel build only at the second build stage when we know
@@ -14,9 +14,9 @@ endif
 build_kernel:
 	$(VERBOSE)cmake \
 	          -DCROSS_COMPILER_PREFIX=$(CROSS_DEV_PREFIX) \
-			  -DCMAKE_TOOLCHAIN_FILE=$(SEL4_DIR)/gcc.cmake \
+			  -DCMAKE_TOOLCHAIN_FILE=$(SELL4_DIR)/gcc.cmake \
 			  -G Ninja \
-			  -C $(SEL4_DIR)/configs/X64_verified.cmake \
-	          $(SEL4_DIR)
+			  -C $(SELL4_DIR)/configs/X64_verified.cmake \
+	          $(SELL4_DIR)
 	$(VERBOSE)ninja kernel.elf
 
