@@ -1,0 +1,5 @@
+mkdir /genode/genode64/contrib/sell4-78aa0b8824c065630ce9f017ea30dad5ea4f3e7c/src/kernel/build
+cd /genode/genode64/contrib/sell4-78aa0b8824c065630ce9f017ea30dad5ea4f3e7c/src/kernel/build
+docker exec -w /genode/genode64/contrib/sell4-78aa0b8824c065630ce9f017ea30dad5ea4f3e7c/src/kernel/build bb318fb51d67 cmake -DCROSS_COMPILER_PREFIX=/usr/local/genode/tool/current/bin/genode-x86- -DCMAKE_TOOLCHAIN_FILE=../sel4/gcc.cmake -G Ninja -C ../sel4/configs/X64_verified.cmake ../sel4
+docker exec -w /genode/genode64/contrib/sell4-78aa0b8824c065630ce9f017ea30dad5ea4f3e7c/src/kernel/build -it -u root bb318fb51d67 apt install python3-jinja2
+ninja kernel.elf
