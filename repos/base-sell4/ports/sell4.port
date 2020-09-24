@@ -6,3 +6,9 @@ URL(sell4) := https://github.com/seL4/seL4.git
 # Release 11.0.0
 REV(sell4) := ff216025041bfab6a45080eaabda2ff4af5db3e9
 DIR(sell4) := src/kernel/sel4
+
+$(call check_tool,python)
+$(call check_python_module,future)
+$(call check_python_module,tempita)
+$(call check_python_module,ply)
+$(call check_python_module,six)
