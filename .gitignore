@@ -2,7 +2,9 @@
 *.orig
 *.swp
 *.rej
-
+*.iso
+sell4-pc
+bender
 /build
 /contrib
 /depot
