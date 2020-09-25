@@ -1,24 +1,4 @@
 assert_spec x86
 create_boot_directory
-set config {
-<config>
-    <parent-provides>
-        <service name="ROM"/>
-        <service name="LOG"/>
-        <service name="RM"/>
-        <service name="CPU"/>
-        <service name="PD"/>
-        <service name="IRQ"/>
-        <service name="IO_PORT"/>
-        <service name="IO_MEM"/>
-    </parent-provides>
-    <default-route>
-        <any-service> <parent/> <any-child/> </any-service>
-        </default-route>
-    </config>
-}
-install_config $config
-build "init"
-build_boot_image "init"
-append qemu_args " -nographic -m 64 "
-run_genode_until forever
+build kernel/sell4
+# build_boot_image "kernel/sell4"
