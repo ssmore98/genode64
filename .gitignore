@@ -3,6 +3,7 @@
 *.swp
 *.rej
 *.iso
+*.img
 sell4-pc
 bender
 /build
