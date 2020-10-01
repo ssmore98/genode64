@@ -16,7 +16,7 @@ build_kernel:
 	          -DCROSS_COMPILER_PREFIX=$(CROSS_DEV_PREFIX) \
 			  -DCMAKE_TOOLCHAIN_FILE=$(SELL4_DIR)/gcc.cmake \
 			  -G Ninja \
-			  -C $(SELL4_DIR)/configs/X64_verified.cmake \
+			  -C $(SELL4_DIR)/configs/sell4.cmake \
 	          $(SELL4_DIR)
 	$(VERBOSE)ninja kernel.elf
 
