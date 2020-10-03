@@ -14,8 +14,6 @@ export QEMU="qemu-system-x86_64 -machine q35 -serial mon:stdio -acpitable data=$
 
 ssh 192.168.122.61 make -C $GROOT/build/x86_64 clean
 ssh 192.168.122.61 make -C $GROOT/build/x86_64 run/sell4
-# docker exec bb318fb51d67 make -C $GROOT/build/x86_64 clean
-# docker exec bb318fb51d67 make -C $GROOT/build/x86_64 run/sell4
 
 export UBOOTFILE=$GROOT/sell4-uboot.img
 mkimage -f $GROOT/sell4.its $UBOOTFILE
@@ -41,18 +39,4 @@ sudo e2cp /boot/initramfs-3.10.0-862.el7.x86_64.img $LOOP:/boot
 
 sudo losetup -d $LOOP
 
-# cp $GROOT/tool/boot/bender $GROOT/iso/boot
-# grub2-mkrescue -o $GROOT/os.iso $GROOT/iso
-# qemu-system-x86_64 -cpu Nehalem,-vme,+pdpe1gb,-xsave,-xsaveopt,-xsavec,-fsgsbase,-invpcid,enforce -serial mon:stdio -enable-kvm -cdrom $GROOT/os.iso
-# $QEMU -device piix4-ide,id=ahci0 -device ide-hd,drive=ahci0,bus=ahci0.0 -drive file=$IMGFILE,id=ahci0,index=0,media=disk,format=raw
-# $QEMU -device nvme,drive=nvme0,serial=nvme0 -drive file=$IMGFILE,id=nvme0,if=none
-# $QEMU -sda $IMGFILE
-# $QEMU -drive file=$IMGFILE,index=0,media=disk
-# $QEMU -device virtio-scsi-pci,id=scsi0 -device scsi-hd,drive=drive0,bus=scsi0.0,channel=0,scsi-id=0,lun=0 -drive file=$IMGFILE,if=none,id=drive0
 $QEMU -device usb-ehci -device usb-storage,drive=drive0,bootindex=0 -drive file=$IMGFILE,if=none,id=drive0
-# qemu-system-x86_64 -cpu kvm64,-vme,+pdpe1gb,-xsave,-xsaveopt,-xsavec,-fsgsbase,-invpcid,enforce -serial mon:stdio -m 8G -kernel $GROOT/build/x86_64/bin/sell4-pc
-# $QEMU -enable-kvm -kernel $KERNEL -cpu host
-
-# export TFTP=/var/lib/tftpboot
-# sudo cp sell4.img $TFTP
-# $QEMU -enable-kvm -cpu host
