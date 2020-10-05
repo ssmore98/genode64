@@ -4,6 +4,7 @@
 *.rej
 *.iso
 *.img
+*.bin
 sell4-pc
 bender
 /build

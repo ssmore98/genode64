@@ -11,10 +11,10 @@
 	images {
 		kernel {
 			description = "seL4 kernel";
-			data = /incbin/("./build/x86_64/var/libcache/kernel-sell4-pc/kernel.elf");
+			data = /incbin/("./sell4-pc.bin");
 			type = "kernel";
 			arch = "x86_64";
-			os = "linux";
+			os = "rtems";
 			compression = "none";
 			load = <0x01000000>;
 			entry = <0x00000000>;

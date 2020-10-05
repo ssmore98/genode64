@@ -1,5 +1,5 @@
 #!/bin/sh
-export SECTORS=$((1024*1024*2))
+export SECTORS=$((256*1024*2))
 export SKIP=2048
 export ENDSECTOR=2097118
 export GROOT=/genode/genode64
@@ -14,6 +14,9 @@ export QEMU="qemu-system-x86_64 -machine q35 -serial mon:stdio -acpitable data=$
 
 ssh 192.168.122.61 make -C $GROOT/build/x86_64 clean
 ssh 192.168.122.61 make -C $GROOT/build/x86_64 run/sell4
+
+export KERNELBIN=$GROOT/sell4-pc.bin
+objcopy -O binary $KERNEL $KERNELBIN
 
 export UBOOTFILE=$GROOT/sell4-uboot.img
 mkimage -f $GROOT/sell4.its $UBOOTFILE
